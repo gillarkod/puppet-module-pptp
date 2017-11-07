@@ -1,0 +1,21 @@
+{
+  "name": "marhag87-pptp",
+  "version": "0.1.0",
+  "author": "marhag87",
+  "summary": "Manate pptp and connections",
+  "license": "Apache-2.0",
+  "source": "https://github.com/gillarkod/puppet-module-pptp",
+  "project_page": "https://github.com/gillarkod/puppet-module-pptp",
+  "issues_url": "https://github.com/gillarkod/puppet-module-pptp/issues",
+  "dependencies": [
+    {
+      "name": "puppetlabs-stdlib",
+      "version_requirement": ">= 4.2.0"
+    },
+    {
+      "name": "crayfishx-firewalld",
+      "version_requirement": ">= 3.0.0"
+    }
+  ]
+}
+

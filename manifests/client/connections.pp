@@ -1,0 +1,48 @@
+class pptp::client::connections {
+  if defined('$pptp::connections') {
+    $pptp::connections.each |$connection| {
+      file { $connection['name']:
+        ensure   => 'file',
+        path     => "/etc/ppp/peers/${connection['name']}",
+        owner    => 'root',
+        group    => 'root',
+        mode     => '0644',
+        seluser  => 'unconfined_u',
+        seltype  => 'pppd_etc_rw_t',
+        selrange => 's0',
+        selrole  => 'object_r',
+        content  => template('pptp/connection.erb'),
+      }
+
+      service { $connection['name']:
+        name   => "ppp@${connection['name']}.service",
+        ensure => $connection['running'],
+        enable => $connection['enable'],
+      }
+    }
+
+    file { '/etc/ppp/ip-up.local':
+      ensure   => 'file',
+      owner    => 'root',
+      group    => 'root',
+      mode     => '0755',
+      seluser  => 'unconfined_u',
+      selrole  => 'object_r',
+      seltype  => 'bin_t',
+      selrange => 's0',
+      content  => template('pptp/ip-up.local.erb'),
+    }
+
+    file { '/etc/ppp/ip-down.local':
+      ensure   => 'file',
+      owner    => 'root',
+      group    => 'root',
+      mode     => '0755',
+      seluser  => 'unconfined_u',
+      selrole  => 'object_r',
+      seltype  => 'bin_t',
+      selrange => 's0',
+      content  => template('pptp/ip-down.local.erb'),
+    }
+  }
+}

@@ -1,0 +1,5 @@
+pptp::client_package_manage: true
+pptp::client_package_name: pptp
+pptp::client_package_ensure: installed
+pptp::client_module_manage: true
+pptp::client_firewall_manage: true
