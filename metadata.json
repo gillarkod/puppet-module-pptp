@@ -1,12 +1,20 @@
 {
   "name": "marhag87-pptp",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": "marhag87",
   "summary": "Manate pptp and connections",
   "license": "Apache-2.0",
   "source": "https://github.com/gillarkod/puppet-module-pptp",
   "project_page": "https://github.com/gillarkod/puppet-module-pptp",
   "issues_url": "https://github.com/gillarkod/puppet-module-pptp/issues",
+  "operatingsystem_support": [
+    {
+      "operatingsystem": "CentOS",
+      "operatingsystemrelease": [
+        "7"
+      ]
+    }
+  ],
   "dependencies": [
     {
       "name": "puppetlabs-stdlib",
@@ -15,6 +23,12 @@
     {
       "name": "crayfishx-firewalld",
       "version_requirement": ">= 3.0.0"
+    }
+  ],
+  "requirements": [
+    {
+      "name": "puppet",
+      "version_requirement": ">= 5.0.0 < 6.0.0"
     }
   ]
 }

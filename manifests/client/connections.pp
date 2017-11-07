@@ -15,8 +15,8 @@ class pptp::client::connections {
       }
 
       service { $connection['name']:
-        name   => "ppp@${connection['name']}.service",
         ensure => $connection['running'],
+        name   => "ppp@${connection['name']}.service",
         enable => $connection['enable'],
       }
     }
